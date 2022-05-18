@@ -4,10 +4,12 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_DIR = os.path.dirname(BASE_DIR)
-SECRETS_PATH = os.path.join(ROOT_DIR, '.secrets.json')
+SECRETS_PATH = os.path.join(ROOT_DIR, 'secrets.json')
 
 
 SECRET_KEY = json.loads(open(SECRETS_PATH).read())
+
+
 
 DEBUG = True
 
