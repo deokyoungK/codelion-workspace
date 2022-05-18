@@ -1,14 +1,13 @@
 from pathlib import Path
-import json
 import os
+import my_settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 ROOT_DIR = os.path.dirname(BASE_DIR)
-SECRETS_PATH = os.path.join(ROOT_DIR, 'secrets.json')
 
 
-SECRET_KEY = json.loads(open(SECRETS_PATH).read())
-
+SECRET_KEY = my_settings.SECRET_KEY
+DATABASES = my_settings.DATABASES
 
 
 DEBUG = True
@@ -59,12 +58,12 @@ WSGI_APPLICATION = 'devsns.wsgi.application'
 
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqcdlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
