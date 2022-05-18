@@ -2,14 +2,17 @@
 
 {% block content %}
 
-<h1>{{post_detail.title}}</h1>
-<h2>{{post_detail.body}}</h2>
-<p>{{post_detail.date}}</p>
-
-
+<h2 class="alert alert-primary">{{post_detail.title}}</h2>
+<span class="badge rounded-pill bg-light">{{post_detail.date}}</span>
+<hr>
+<p>
+    {{post_detail.body}}
+</p>
+<br><hr>
 <!-- 댓글 목록 공간 -->
 {% for comment in post_detail.comment_set.all %}
-    <p>{{comment.comment_body}}</p>
+    <span class="badge rounded-pill bg-light">{{comment.date}}</span>
+    {{ comment.comment_body }}    
     <hr>
 {% endfor %}
 
@@ -18,9 +21,9 @@
 
 <!-- 댓글 입력 공간 -->
 <form action="{% url 'new_comment' post_detail.id %}" method="POST">
-{% csrf_token %}
-{{comment_form}}
-<input type="submit" value="제출">
+    {% csrf_token %}
+    {{comment_form}}
+    <input type="submit" value="제출">
 </form>
 
 

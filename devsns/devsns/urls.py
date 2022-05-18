@@ -14,11 +14,14 @@ urlpatterns = [
  
     path('login/', accounts.views.login, name='login'),
     path('logout/', accounts.views.logout, name='logout'),
-
+    path('register/', accounts.views.register, name='register'),
+ 
     path('freehome/', snsapp.views.freehome, name='freehome'),
     path('freecreatepost/', snsapp.views.freecreatepost, name='freecreatepost'),
     path('freedetail/<int:post_id>', snsapp.views.freedetail, name='freedetail'),
     path('freenew_comment/<int:post_id>', snsapp.views.freenew_comment, name='freenew_comment'),
+
+
 
 
 ]

@@ -15,7 +15,7 @@
 <!-- 댓글 목록 공간 -->
 {% for comment in post_detail.freecomment_set.all %}
     <span class="badge rounded-pill bg-light">{{comment.date}}</span>
-    {{ comment }}    
+    {{ comment.comment_body }}    
     <hr>
 {% endfor %}
 

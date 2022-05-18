@@ -1,12 +1,15 @@
-from xml.etree.ElementTree import Comment
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Postform, Commentform, freePostform, freeCommentform
 from .models import Post, freePost
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
     posts = Post.objects.filter().order_by('-date')
+    paginator = Paginator(posts, 5)
+    pagenum = request.GET.get('page')
+    posts = paginator.get_page(pagenum)
+
     return render(request,'index.html', {'posts':posts})
 
 def createpost(request):
@@ -37,6 +40,10 @@ def new_comment(request, post_id):
 
 def freehome(request):
     posts = freePost.objects.filter().order_by('-date')
+    paginator = Paginator(posts, 5)
+    pagenum = request.GET.get('page')
+    posts = paginator.get_page(pagenum)
+
     return render(request,'free_index.html', {'posts':posts})
 
 def freecreatepost(request):
@@ -64,5 +71,7 @@ def freenew_comment(request, post_id):
         finished_form.post = get_object_or_404(freePost, pk=post_id)
         finished_form.save()
     return redirect('freedetail', post_id)
+
+
 
 

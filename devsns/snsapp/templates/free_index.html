@@ -29,6 +29,7 @@
         </div>
     </div>
 </div>
+
 {% if user.is_authenticated %}
 <a href="{% url 'freecreatepost' %}" class="btn btn-success btn-icon-split">
     <span class="icon text-white-50">
@@ -37,4 +38,24 @@
     <span class="text">글쓰기</span>
 </a>
 {% endif %}
+
+<!-- Pagination-->
+{% if posts.has_previous %}
+<a href="?page=1">&nbsp<<&nbsp</a>
+<a href="?page={{posts.previous.page_number}}">&nbsp<&nbsp</a>
+{% endif %}
+
+<span> {{ posts.number }} </span>
+<span> /</span>
+<span> {{ posts.paginator.num_pages }} </span>
+
+{% if posts.has_next %}
+<a href="?page={{posts.next_page_number}}">&nbsp>&nbsp</a>
+<a href="?page={{posts.paginator.num_pages}}">&nbsp>>&nbsp</a>
+{% endif %}
+
+
+
+
+
 {% endblock %}
