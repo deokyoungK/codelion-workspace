@@ -2,9 +2,9 @@ from django.shortcuts import render
 import requests
 import json
 from .form import searchForm
+import my_settings
 
-
-api_id = 'b5502afbfd113f5e8a413709da2d503c'
+api_id = my_settings.api_id
 
 def index(request):
     if request.method == 'POST':
