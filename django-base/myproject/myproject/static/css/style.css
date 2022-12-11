@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    color:red;
+}
+
+.title{
+    color: red;
+}
+
+
+
+
+/* ul{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+nav{
+    display: table-cell;
+    width: 100vw;
+    height: 50px;
+    vertical-align: middle;
+    background-color: skyblue;
+}
+
+.nav-left-container{
+    display: inline;
+    float: left;
+}
+
+.nav-right-container{
+    display: inline;
+    float: right;
+}
+
+.nav-item{
+    display: inline;
+} */
